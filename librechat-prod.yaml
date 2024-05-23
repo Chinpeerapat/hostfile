@@ -49,40 +49,7 @@ endpoints:
     # (optional) Models that support retrieval, will default to latest known OpenAI models that support the feature
     retrievalModels: ["gpt-4-turbo-preview"]
     # (optional) Assistant Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
-    capabilities: ["code_interpreter", "retrieval", "actions", "tools", "image_vision"]
-  custom:
-    # Groq Example
-    - name: 'groq'
-      apiKey: '${GROQ_API_KEY}'
-      baseURL: 'https://api.groq.com/openai/v1/'
-      models:
-        default: [
-          "llama3-70b-8192",
-          "llama3-8b-8192",
-          "llama2-70b-4096",
-          "mixtral-8x7b-32768",
-          "gemma-7b-it",
-          ]
-        fetch: false
-      titleConvo: true
-      titleModel: 'mixtral-8x7b-32768'
-      modelDisplayLabel: 'groq'
-
-    # OpenRouter Example
-    - name: 'OpenRouter'
-      # For `apiKey` and `baseURL`, you can use environment variables that you define.
-      # recommended environment variables:
-      # Known issue: you should not use `OPENROUTER_API_KEY` as it will then override the `openAI` endpoint to use OpenRouter as well.
-      apiKey: '${OPENROUTER_KEY}'
-      baseURL: 'https://openrouter.ai/api/v1'
-      models:
-        default: ['meta-llama/llama-3-70b-instruct']
-        fetch: true
-      titleConvo: true
-      titleModel: 'meta-llama/llama-3-70b-instruct'
-      # Recommended: Drop the stop parameter from the request as Openrouter models use a variety of stop tokens.
-      dropParams: ['stop']
-      modelDisplayLabel: 'OpenRouter'
+    capabilities: ["code_interpreter", "retrieval", "actions", "tools", "image_vision
   
   custom:
     # Anyscale
@@ -499,22 +466,22 @@ endpoints:
     #   modelDisplayLabel: "Fireworks"
     #   dropParams: ["user"]
      
-    # # groq
-    # - name: "groq"
-    #   apiKey: "${GROQ_API_KEY}"
-    #   baseURL: "https://api.groq.com/openai/v1/"
-    #   models:
-    #     default: [
-    #       "llama2-70b-4096",
-    #       "llama3-70b-8192",
-    #       "llama3-8b-8192",
-    #       "mixtral-8x7b-32768",
-    #       "gemma-7b-it",
-    #       ]
-    #     fetch: false
-    #   titleConvo: true
-    #   titleModel: "mixtral-8x7b-32768"
-    #   modelDisplayLabel: "groq"
+     # groq
+     - name: "groq"
+       apiKey: "${GROQ_API_KEY}"
+       baseURL: "https://api.groq.com/openai/v1/"
+       models:
+         default: [
+           "llama2-70b-4096",
+           "llama3-70b-8192",
+           "llama3-8b-8192",
+           "mixtral-8x7b-32768",
+           "gemma-7b-it",
+           ]
+         fetch: false
+       titleConvo: true
+       titleModel: "mixtral-8x7b-32768"
+       modelDisplayLabel: "groq"
       
     # # Mistral AI API
     # - name: "Mistral"
@@ -537,12 +504,12 @@ endpoints:
     #   modelDisplayLabel: "Mistral"
     #   dropParams: ["stop", "user", "frequency_penalty", "presence_penalty"]
 
-    # # OpenRouter.ai
-    # - name: "OpenRouter"
-    #   apiKey: "${OPENROUTER_KEY}"
-    #   baseURL: "https://openrouter.ai/api/v1"
-    #   models:
-    #     "default": [
+     # OpenRouter.ai
+     - name: "OpenRouter"
+       apiKey: "${OPENROUTER_KEY}"
+       baseURL: "https://openrouter.ai/api/v1"
+       models:
+         "default": [
     #       "google/gemma-7b-it:free",
     #       "nousresearch/nous-capybara-7b:free",
     #       "mistralai/mistral-7b-instruct:free",
@@ -641,12 +608,12 @@ endpoints:
     #       "nousresearch/nous-hermes-2-vision-7b",
     #       "nousresearch/nous-hermes-yi-34b",
     #       "------------------------------",
-    #       # "perplexity/pplx-7b-online",
-    #       # "perplexity/pplx-70b-online",
-    #       # "perplexity/pplx-7b-chat",
-    #       # "perplexity/pplx-70b-chat",
-    #       # "perplexity/sonar-medium-online",
-    #       # "------------------------------",
+           "perplexity/pplx-7b-online",
+           "perplexity/pplx-70b-online",
+           "perplexity/pplx-7b-chat",
+           "perplexity/pplx-70b-chat",
+           "perplexity/sonar-medium-online",
+           "------------------------------",
     #       "gryphe/mythomist-7b",
     #       "gryphe/mythomax-l2-13b",
     #       "gryphe/mythomax-l2-13b-8k",
@@ -693,14 +660,14 @@ endpoints:
     #       "huggingfaceh4/zephyr-orpo-141b-a35b",
     #       "openchat/openchat-7b",
     #       "sophosympatheia/midnight-rose-70b",
-    #       ]
-    #     fetch: false
-    #   titleConvo: true
-    #   titleModel: "gpt-3.5-turbo"
-    #   summarize: false
-    #   summaryModel: "gpt-3.5-turbo"
-    #   forcePrompt: false
-    #   modelDisplayLabel: "OpenRouter"
+           ]
+         fetch: false
+       titleConvo: true
+       titleModel: "perplexity/pplx-70b-chat"
+       summarize: false
+       summaryModel: "perplexity/pplx-70b-chat"
+       forcePrompt: false
+       modelDisplayLabel: "OpenRouter"
 
     # # OpenRouter.ai - Perplexity
     # - name: "OpenRouter-Perplexity"
@@ -735,9 +702,9 @@ endpoints:
           "sonar-medium-chat",
           "sonar-medium-online",
           "llama-3-sonar-small-32k-chat",
-	        "llama-3-sonar-small-32k-online",
-	        "llama-3-sonar-large-32k-chat",
-	        "llama-3-sonar-large-32k-online",
+	  "llama-3-sonar-small-32k-online",
+	  "llama-3-sonar-large-32k-chat",
+	  "llama-3-sonar-large-32k-online",
           ]
         fetch: false # fetching list of models is not supported
       titleConvo: true
